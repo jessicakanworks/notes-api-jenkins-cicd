@@ -1,0 +1,8 @@
+# Minimal compose used by the deploy stage on the server (image comes from the registry).
+services:
+  app:
+    image: ${REGISTRY}/notes-app:${TAG}
+    container_name: notes-app
+    ports: ["8000:8000"]
+    env_file: .env
+    restart: unless-stopped
